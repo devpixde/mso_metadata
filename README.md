@@ -32,7 +32,7 @@ gem install mso_metadata
 ``` ruby
 require 'mso_metadata'
 
-# Create a Docx::Document object for our existing docx file
+# read local file
 metadata = MsoMetadata.read('example.docx')
 
 # metadata consists two hashes: metadata[:core] and metadata[:custom]
@@ -45,7 +45,8 @@ puts metadata[:custom]
 
 ### Development
 
-#### This was just a fast solution to wrap the code needed to retrieve the metadata from office files.
+This was just a fast solution to wrap the code needed to retrieve the metadata from office files.
 
 #### todo
-- write some tests
+- write some more tests, retrieve more interesting data...
+- catch errors in case of corrupt files or xmls.
