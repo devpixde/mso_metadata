@@ -1,43 +1,51 @@
-# MsoMetadata
+# mso_metadata
 
-TODO: Delete this and the text below, and describe your gem
+## About
+### Prerequisites
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mso_metadata`. To experiment with that code, run `bin/console` for an interactive prompt.
+- Ruby 3.x
 
-## Installation
+### Install
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add the following line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
-
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'mso_metadata'
 ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+And then execute:
 
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```shell
+bundle install
+```
+
+Or install it yourself as:
+
+```shell
+gem install mso_metadata
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Reading
 
-## Development
+``` ruby
+require 'mso_metadata'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# Create a Docx::Document object for our existing docx file
+metadata = MsoMetadata.read('example.docx')
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# metadata consists two hashes: metadata[:core] and metadata[:custom]
+# custom metadata could be set with arbitrary key values. Thats why we have to split it, to prevent key value collisions.
 
-## Contributing
+puts metadata[:core]
+puts metadata[:custom]
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mso_metadata. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/mso_metadata/blob/main/CODE_OF_CONDUCT.md).
+```
 
-## License
+### Development
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+#### This was just a fast solution to wrap the code needed to retrieve the metadata from office files.
 
-## Code of Conduct
-
-Everyone interacting in the MsoMetadata project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/mso_metadata/blob/main/CODE_OF_CONDUCT.md).
+#### todo
+- write some tests
