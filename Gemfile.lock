@@ -1,0 +1,28 @@
+PATH
+  remote: .
+  specs:
+    mso_metadata (0.1.0)
+      nokogiri (~> 1.16)
+      rubyzip (~> 2.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.25.4)
+    nokogiri (1.16.8-arm64-darwin)
+      racc (~> 1.4)
+    racc (1.8.1)
+    rake (13.2.1)
+    rubyzip (2.3.2)
+
+PLATFORMS
+  arm64-darwin-24
+  ruby
+
+DEPENDENCIES
+  minitest (~> 5.16)
+  mso_metadata!
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.5.23
